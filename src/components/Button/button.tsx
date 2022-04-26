@@ -22,8 +22,20 @@ interface BaseButtonProps {
     href?: string;
 }
 
-const Button = ({btnType = ButtonType.Default, disabled = false, size, children, href, ...props}: BaseButtonProps) => {
-    const classes = classNames('btn', {
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+
+const Button = ({
+                    btnType = ButtonType.Default,
+                    disabled = false,
+                    className,
+                    size,
+                    children,
+                    href,
+                    ...restProps
+                }: ButtonProps) => {
+    const classes = classNames('btn', className, {
         [`btn-${btnType}`]: btnType,
         [`btn-${size}`]: size,
         'disabled': (btnType === ButtonType.Link) && disabled
@@ -34,6 +46,7 @@ const Button = ({btnType = ButtonType.Default, disabled = false, size, children,
             <a
                 className={classes}
                 href={href}
+                {...restProps}
             >{children}</a>
         )
     } else {
@@ -41,6 +54,7 @@ const Button = ({btnType = ButtonType.Default, disabled = false, size, children,
             <button
                 className={classes}
                 disabled={disabled}
+                {...restProps}
             >{children}</button>
         )
     }
