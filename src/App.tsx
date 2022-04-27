@@ -1,11 +1,24 @@
 import React from 'react';
 import './styles/index.scss'
 import Button, {ButtonSize, ButtonType} from "./components/Button/button";
+import Menu from "./components/Menu/menu";
+import MenuItem from './components/Menu/menuItem';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}}>
+          <MenuItem index={1}>
+            cool link
+          </MenuItem>
+          <MenuItem index={2} disabled>
+            cool link 2
+          </MenuItem>
+          <MenuItem index={3}>
+            cool link 3
+          </MenuItem>
+        </Menu>
         <Button >Hello</Button>
         <Button autoFocus size={ButtonSize.Large}>World</Button>
         <Button disabled size={ButtonSize.Large}>World</Button>
