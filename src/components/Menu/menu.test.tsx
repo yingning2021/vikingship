@@ -3,7 +3,6 @@ import MenuItem from "./menuItem";
 import React from "react";
 import {cleanup, fireEvent, render, screen, waitFor} from "@testing-library/react";
 import SubMenu from "./subMenu";
-import {Simulate} from "react-dom/test-utils";
 
 const testProps: MenuProps = {
     defaultIndex: '0',
@@ -16,7 +15,7 @@ const testVerticalProps: MenuProps = {
     onSelect: jest.fn(),
     className: 'test',
     mode: "vertical",
-    defaultOpenSubMenus: ['3']
+    defaultOpenSubMenus: ['4']
 }
 
 const generateMenu = (props: MenuProps) => {

@@ -4,11 +4,17 @@ import Button, {ButtonSize, ButtonType} from "./components/Button/button";
 import Menu from "./components/Menu/menu";
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from "./components/Menu/subMenu";
+import Icon from './components/Icon/icon'
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {fas} from "@fortawesome/free-solid-svg-icons";
 
+library.add(fas)
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Icon icon={"coffee"} theme="danger" size={"10x"}></Icon>
+        <Icon icon={"coffee"} theme="primary" size={"10x"}></Icon>
         <Menu mode="vertical" onSelect={(index) => {console.log(index)}}>
           <MenuItem >
             cool link
