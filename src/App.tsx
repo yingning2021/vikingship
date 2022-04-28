@@ -15,7 +15,7 @@ function App() {
       <header className="App-header">
         <Icon icon={"coffee"} theme="danger" size={"10x"}></Icon>
         <Icon icon={"coffee"} theme="primary" size={"10x"}></Icon>
-        <Menu mode="vertical" onSelect={(index) => {console.log(index)}}>
+        <Menu mode="horizontal" onSelect={(index) => {console.log(index)}}>
           <MenuItem >
             cool link
           </MenuItem>
