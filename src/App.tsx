@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, useState} from 'react';
+import React, {useState} from 'react';
 import './styles/index.scss'
 import Button, {ButtonSize, ButtonType} from "./components/Button/button";
 import Menu from "./components/Menu/menu";
@@ -13,7 +13,7 @@ library.add(fas)
 function App() {
   const [display, setDisplay] = useState(true)
 
-  const handleClick  = (e: React.MouseEvent ) => {
+  const handleClick  = () => {
     setDisplay(!display)
   }
   return (
