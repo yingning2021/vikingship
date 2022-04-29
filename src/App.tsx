@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {MouseEventHandler, useState} from 'react';
 import './styles/index.scss'
 import Button, {ButtonSize, ButtonType} from "./components/Button/button";
 import Menu from "./components/Menu/menu";
@@ -7,9 +7,15 @@ import SubMenu from "./components/Menu/subMenu";
 import Icon from './components/Icon/icon'
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {fas} from "@fortawesome/free-solid-svg-icons";
+import Transition from "./components/Transition/transition";
 
 library.add(fas)
 function App() {
+  const [display, setDisplay] = useState(true)
+
+  const handleClick  = (e: React.MouseEvent ) => {
+    setDisplay(!display)
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -41,17 +47,32 @@ function App() {
         <Button btnType={ButtonType.Danger} size={ButtonSize.Large}>World</Button>
         <Button disabled btnType={ButtonType.Link} href="https://www.baidu.com">Baidu Link</Button>
         <Button btnType={ButtonType.Link} href="https://www.baidu.com" target="_blank">Baidu Link</Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <br/>
+        <Button btnType={ButtonType.Primary} onClick={handleClick}>setDisplay</Button>
+        <Transition in={display} animation="zoom-in-left" timeout={300} wrapper={false}>
+          <div>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload.
+            </p>
+            <Button btnType={ButtonType.Primary} onClick={handleClick}>setDisplay</Button>
+          </div>
+        </Transition>
       </header>
     </div>
   );
