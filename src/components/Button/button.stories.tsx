@@ -26,14 +26,14 @@ const buttonWithType = () => (
 
 storiesOf('Button Component', module)
     // @ts-ignore
-    .addDecorator(withInfo)
-    .addParameters({
-        info: {
-            test: `this is a very nice compnent
-            ## this is a header`,
-            inline: true
-        }
-    })
+    // .addDecorator(withInfo)
+    // .addParameters({
+    //     info: {
+    //         test: `this is a very nice compnent
+    //         ## this is a header`,
+    //         inline: true
+    //     }
+    // })
 .add('默认 Button', defaultButton)
 .add('不同尺寸的Button', buttonWithSize)
 .add('不同类型的button', buttonWithType)
